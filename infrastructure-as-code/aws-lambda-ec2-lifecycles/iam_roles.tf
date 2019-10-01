@@ -7,7 +7,7 @@ data "aws_caller_identity" "current" {}
 data "template_file" "iam_lambda_notify" {
   template = "${file("./files/iam_lambda_notify.tpl")}"
 
-  vars {
+  vars = {
     account_id = "${data.aws_caller_identity.current.account_id}"
     region = "${var.region}"
   }
@@ -17,7 +17,7 @@ data "template_file" "iam_lambda_notify" {
 data "template_file" "iam_lambda_read_instances" {
   template = "${file("./files/iam_lambda_read_instances.tpl")}"
 
-  vars {
+  vars = {
     account_id = "${data.aws_caller_identity.current.account_id}"
     region = "${var.region}"
   }
@@ -27,7 +27,7 @@ data "template_file" "iam_lambda_read_instances" {
 data "template_file" "iam_lambda_stop_and_terminate_instances" {
   template = "${file("./files/iam_lambda_stop_and_terminate_instances.tpl")}"
 
-  vars {
+  vars = {
     account_id = "${data.aws_caller_identity.current.account_id}"
     region = "${var.region}"
   }
@@ -37,7 +37,7 @@ data "template_file" "iam_lambda_stop_and_terminate_instances" {
 data "template_file" "iam_lambda_terminate_asgs" {
   template = "${file("./files/iam_lambda_terminate_asgs.tpl")}"
 
-  vars {
+  vars = {
     account_id = "${data.aws_caller_identity.current.account_id}"
     region = "${var.region}"
   }

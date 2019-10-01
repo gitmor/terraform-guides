@@ -4,7 +4,7 @@ resource "aws_lambda_function" "ASGJanitor" {
   function_name    = "ASGJanitor"
   role             = "${aws_iam_role.lambda_terminate_asgs.arn}"
   handler          = "ASGJanitor.lambda_handler"
-  source_code_hash = "${base64sha256(file("./files/ASGJanitor.zip"))}"
+  source_code_hash = "${base64sha256(filebase64sha256("./files/ASGJanitor.zip"))}"
   runtime          = "python3.6"
   timeout          = "120"
   description      = "Terminates untagged ASGs after a pre-set number of days."

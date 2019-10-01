@@ -4,7 +4,7 @@ resource "aws_lambda_function" "EC2Reaper" {
   function_name    = "EC2Reaper"
   role             = "${aws_iam_role.lambda_stop_and_terminate_instances.arn}"
   handler          = "EC2Reaper.lambda_handler"
-  source_code_hash = "${base64sha256(file("./files/EC2Reaper.zip"))}"
+  source_code_hash = "${base64sha256(filebase64sha256("./files/EC2Reaper.zip"))}"
   runtime          = "python3.6"
   timeout          = "120"
   description      = "Checks instance TTLs for expiration and deals with them accordingly."

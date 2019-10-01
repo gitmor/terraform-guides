@@ -4,7 +4,7 @@ resource "aws_lambda_function" "ASGReaper" {
   function_name    = "ASGReaper"
   role             = "${aws_iam_role.lambda_terminate_asgs.arn}"
   handler          = "ASGReaper.lambda_handler"
-  source_code_hash = "${base64sha256(file("./files/ASGReaper.zip"))}"
+  source_code_hash = "${base64sha256(filebase64sha256("./files/ASGReaper.zip"))}"
   runtime          = "python3.6"
   timeout          = "120"
   description      = "Checks ASG TTLs for expiration and deals with them accordingly."
