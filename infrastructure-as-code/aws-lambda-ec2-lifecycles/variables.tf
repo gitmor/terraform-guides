@@ -1,5 +1,5 @@
 variable "region" {
-  default     = "us-west-2"
+  default     = "us-east-1"
   description = "AWS Region"
 }
 
@@ -38,4 +38,28 @@ variable "asg_reap_days" {
 variable "is_active" {
   default = "False"
   description = "Determines whether scripts will actually stop and terminate instances or do a dry run instead."
+}
+
+variable "profile" {
+  default = "default"
+  description = "Determines AWS profile to use."
+}
+
+
+variable "default_tags" {
+  type = "map"
+  default = {
+    "ApplicationID" = "vkvtest",
+    "ApplicationName" = "vkvtest",
+    "BU"= "vkvtest",
+    "DeptID" = "vkvtest",
+    "CoreID" = "vkvtest",
+    "Env" = "dev",
+    "ProjectID" = "vkvtest",
+    "TerraformScriptVersion" = "0.12.9",
+    "CreatedBy" = "vkvtest"
+  }
+}
+
+variable "tags" {
 }

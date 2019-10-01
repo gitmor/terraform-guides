@@ -8,5 +8,11 @@
 # untagged_janitor.tf - Cleans up untagged instances.
 
 provider "aws" {                                             
-  region     = "${var.region}"                                    
+  region     = "${var.region}"    
+  profile    = "${var.profile}"                                
+  version    = "~> 2.30"
+}
+
+provider "template" {                                             
+  version    = "~> 2.1"
 }
